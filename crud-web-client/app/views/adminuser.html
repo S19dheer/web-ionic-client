@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <form ng-submit="submit(city)">
+            <div style="float: left;">
+                <label>Search By City</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" ng-model="city">
+            </div>
+            <div>
+                <button class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+            </div>
+    </div>
+    </form>
+    <div class="list-group" ng-repeat="name in data.result" ng-if="data.result">
+        <div class="list-group-item-heading" style="margin-top: 20px;">
+            <a href="" style="font-size: x-large;">{{name.name}}</a>
+            <button class="btn btn-primary btn-sm" ng-click="delete(name)">Delete</button>
+        </div>
+        <ul>
+            <li class="list-group-item" inline-edit="name.ratings" on-save="update(name)" on-cancel="cancelEdit(name.ratings)">Ratings:{{name.ratings}}</li>
+            <li class="list-group-item" inline-edit="name.address.city" on-save="update(name)" on-cancel="cancelEdit(name.address.city)">City:{{name.address.city}}</li>
+            <li class="list-group-item" inline-edit="name.address.state" on-save="update(name)" on-cancel="cancelEdit(name.address.state)">State :{{name.address.state}}</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<ion-view view-title="Admin User">
+    <ion-content class="padding">
+        <div class="list">
+            <div>
+                <form ng-submit="submit(value)">
+                    <div>
+                        <label>Search</label>
+                    </div>
+                    <div>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Insert the city" ng-model="value"></input>
+                        </label>
+                    </div>
+                    <div>
+                        <button class="button button-positive" style="margin-top: 15px;">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="list" ng-repeat="name in data.result" style="margin-top: 15px;">
+                <div class="item item-divider">
+                    <!-- <a href=""></a> -->
+                    {{name.name}} Z 
+                    <button class="button  button-icon icon-left ion-close" ng-click="delete(name)" style="margin-top: -11px;"></button>
+                </div>
+                <ul style="margin-top: 10px;">
+                    <li inline-edit="name.ratings" on-save="update(name)" on-cancel="cancelEdit(name.ratings)">{{name.ratings}}</li>
+                    <li>{{name.address.city}}</li>
+                    <li>{{name.address.state}}</li>
+                    <li>{{name.country}}</li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

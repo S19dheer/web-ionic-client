@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <form ng-submit="submit(city)">
+            <div style="float: left;">
+                <label>Search By City</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" ng-model="city">
+            </div>
+            <div>
+                <button class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="list-group" ng-repeat="name in data.result">
+        <div class="list-group-item-heading" style="margin-top: 20px;">
+            <a href="" style="font-size: x-large;">{{name.name}}</a>
+        </div>
+        <ul>
+            <li class="list-group-item"> {{name.address.city}}</li>
+            <li class="list-group-item"> {{name.address.state}}</li>
+            <li class="list-group-item"> {{name.ratings}}</li>
+        </ul>
+    </div>
+</div>
